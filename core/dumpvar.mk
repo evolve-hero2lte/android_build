@@ -136,8 +136,6 @@ endif # CALLED_FROM_SETUP
 
 ifneq ($(PRINT_BUILD_CONFIG),)
 $(info ============================================)
-$(info   MITHRA_VERSION=$(CM_VERSION))
-$(info   MITHRA_DEVICE=$(CM_BUILD))
 $(foreach v, $(print_build_config_vars),\
   $(info $v=$($(v))))
 $(info ============================================)
