@@ -2236,6 +2236,8 @@ bacon: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(CM_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(CM_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(CM_TARGET_PACKAGE).md5sum
 	@echo "Package Complete: $(CM_TARGET_PACKAGE)" >&2
+	@echo -e ${CL_CYN}"FileSize in MB : `ls -lh $(CM_TARGET_PACKAGE) | cut -d ' ' -f 5`"
+    @echo -e ${CL_CYN}"FileSize in Bytes : `ls -l $(CM_TARGET_PACKAGE) | cut -d ' ' -f 5`"
 
 endif    # build_ota_package
 # -----------------------------------------------------------------
