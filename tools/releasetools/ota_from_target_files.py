@@ -653,7 +653,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   #script.Print("Target: %s" % CalculateFingerprint(
   #   oem_props, oem_dict, OPTIONS.info_dict))
   script.Print("================================");
-  script.Print("============ MITHRA ============");
+  script.Print("============ EVOLVE ============");
   script.Print("===========  R O M   ===========");
   script.Print("================================");
 
@@ -766,6 +766,10 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print("Flashing Kernel..")
   script.ShowProgress(0.05, 5)
   script.WriteRawImage("/boot", "boot.img")
+
+  common.ZipWriteStr(output_zip, "magisk/magisk.zip",
+  ""+input_zip.read("SYSTEM/addon.d/magisk.zip"))
+  script.FlashMagisk()
 
   script.ShowProgress(0.2, 10)
   device_specific.FullOTA_InstallEnd()
